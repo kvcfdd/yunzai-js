@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>原神深渊信息</title>
+    <style>
+        @font-face {
+            font-family: 'YS';
+            src: url('../../plugins/miao-plugin/resources/common/font/HYWH-65W.woff') format('woff');
+        }
+        body {
+            font-family: 'YS', sans-serif;
+            margin: 0;
+            background-color: #1d2232;
+            color: #d3bc8e;
+            width: 800px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .main-header {
+            text-align: center;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .main-header h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ece5d8;
+            margin: 0;
+        }
+        .main-header p {
+            font-size: 16px;
+            margin: 5px 0 0;
+            color: #c7c1b5;
+        }
+        .leyline-card {
+            background-color: #272c40;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #4a506e;
+        }
+        .leyline-bg {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+        }
+        .leyline-title {
+            font-size: 24px;
+            margin-top: 15px;
+            color: #ece5d8;
+        }
+        .leyline-desc {
+            font-size: 16px;
+            margin-top: 8px;
+            color: #c7c1b5;
+        }
+        .highlight {
+            color: #F39000;
+        }
+        .buff-card {
+            background-color: #272c40;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid #4a506e;
+            font-size: 16px;
+            color: #c7c1b5;
+        }
+        .room-card {
+            background-color: #272c40;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid #4a506e;
+        }
+        .room-header {
+            text-align: center;
+            font-size: 18px;
+            color: #ece5d8;
+            margin-bottom: 20px;
+        }
+        .room-content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .half {
+            width: 48%;
+        }
+        .half-title {
+            font-size: 16px;
+            color: #d3bc8e;
+            border-bottom: 1px solid #4a506e;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+        }
+        .monster-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .monster-item {
+            display: flex;
+            align-items: center;
+        }
+        .monster-icon {
+            width: 64px;
+            height: 64px;
+            margin-right: 15px;
+            background-color: #1d2232;
+            border-radius: 50%;
+            border: 1px solid #4a506e;
+        }
+        .monster-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .monster-name {
+            font-size: 16px;
+            color: #ece5d8;
+        }
+        .monster-hp {
+            font-size: 14px;
+            color: #c7c1b5;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="main-header">
+        <h1>{{queryDateStr}} 深渊详情</h1>
+        <p>{{begin.substring(0, 16)}} ~ {{end.substring(0, 16)}}</p>
+    </div>
+
+    {{if leyline}}
+    <div class="leyline-card">
+        <div class="leyline-bg" style="background-image: url('{{leyline.icon}}')"></div>
+        <div class="leyline-title">{{leyline.name}}</div>
+        <div class="leyline-desc">{{@ leyline.desc}}</div>
+    </div>
+    {{/if}}
+
+    {{if buff}}
+    <div class="buff-card">
+        {{@ buff}}
+    </div>
+    {{/if}}
+
+    {{each rooms room}}
+    <div class="room-card">
+        <div class="room-header">{{room.header}}</div>
+        <div class="room-content">
+            <div class="half">
+                <div class="half-title">上半</div>
+                <div class="monster-list">
+                    {{each room.firstHalf monster}}
+                    <div class="monster-item">
+                        <img class="monster-icon" src="{{monster.icon}}">
+                        <div class="monster-info">
+                            <div class="monster-name">{{monster.name}}</div>
+                            <div class="monster-hp">{{monster.hp}}</div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="half">
+                <div class="half-title">下半</div>
+                <div class="monster-list">
+                    {{each room.secondHalf monster}}
+                    <div class="monster-item">
+                        <img class="monster-icon" src="{{monster.icon}}">
+                        <div class="monster-info">
+                            <div class="monster-name">{{monster.name}}</div>
+                            <div class="monster-hp">{{monster.hp}}</div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
+</body>
+</html>
