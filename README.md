@@ -20,3 +20,12 @@ curl -o plugins/example/request.js https://raw.githubusercontent.com/kvcfdd/yunz
 ```
 
 说明：收到好友申请与群邀请时会向主人发送通知，主人可使用命令处理
+
+
+- QQ主页点赞
+
+```
+curl -o plugins/example/like.js https://raw.githubusercontent.com/kvcfdd/yunzai-js/refs/heads/main/js/like.js
+```
+
+使用示例：`#赞我`
