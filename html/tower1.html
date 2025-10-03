@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鸣潮深塔信息</title>
+    <style>
+        @font-face {
+            font-family: 'ww-font';
+            src: url('../../plugins/miao-plugin/resources/common/font/HYWH-65W.woff') format('woff');
+        }
+        body {
+            font-family: 'ww-font', sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #ece5d8;
+            background-color: #1a1a1a;
+            background-image: url({{bg}});
+            background-size: cover;
+            background-position: center;
+            min-width: 1400px;
+        }
+        .container {
+            background-color: rgba(20, 20, 20, 0.88);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .main-header {
+            text-align: center;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .main-header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .main-header p {
+            font-size: 18px;
+            margin: 5px 0 0;
+            color: #b0a99f;
+        }
+        .schedule-block {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .schedule-block:last-child {
+            margin-bottom: 0;
+        }
+        .schedule-header {
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .schedule-header h1 {
+            font-size: 28px;
+            margin: 0;
+            font-weight: 600;
+        }
+        .content-wrapper {
+            display: flex;
+            gap: 20px;
+        }
+        .tower-area {
+            flex: 1;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+        }
+        .area-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .floor {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+        .floor:last-child {
+            margin-bottom: 0;
+        }
+        .floor-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .info-block { margin-bottom: 10px; }
+        .info-block:last-child { margin-bottom: 0; }
+        .info-block .title { font-size: 16px; font-weight: bold; margin-bottom: 6px; display: flex; align-items: center; }
+        .info-block .content { font-size: 14px; line-height: 1.5; color: #dcd6cb; padding-left: 15px; }
+        .buff-list { list-style-type: disc; padding-left: 20px; margin: 0; }
+        .buff-list li { margin-bottom: 5px; }
+        .footer { text-align: center; margin-top: 20px; font-size: 14px; color: #888; }
+        
+        .element-icon-list {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-left: 10px;
+        }
+        .element-icon {
+            width: 28px;
+            height: 28px;
+            margin-right: 5px;
+        }
+
+        .monster-list {
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 15px;
+            gap: 10px;
+        }
+
+        .monster-list:has(.monster-item:nth-child(2):last-child),
+        .monster-list:has(.monster-item:nth-child(3):last-child) {
+            gap: 25px;
+        }
+
+        .monster-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 60px;
+        }
+        .monster-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            border: 1px solid #555;
+        }
+        .monster-hp {
+            font-size: 12px;
+            color: #c0c0c0;
+            margin-top: 4px;
+            white-space: nowrap; 
+            transform: scale(0.9);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="main-header">
+        <h1>{{ queryDateStr }} 深塔详情</h1>
+        <!-- 如果只有一期，在这里显示日期 -->
+        {{if !showPeriodHeader}}
+        <p>{{ begin }} ~ {{ end }}</p>
+        {{/if}}
+    </div>
+
+    {{each schedules schedule index}}
+    <div class="schedule-block">
+        {{if showPeriodHeader}}
+        <div class="schedule-header">
+            <h1>第 {{ index + 1 }} 期</h1>
+            <!-- 多期时才在这里显示日期 -->
+            <p>{{ schedule.begin }} ~ {{ schedule.end }}</p>
+        </div>
+        {{/if}}
+
+        <div class="content-wrapper">
+            {{each schedule.areas area}}
+            <div class="tower-area" style="{{area.headerStyle}}">
+                <div class="area-header">{{ area.name }}</div>
+                {{each area.floors floor floorIndex}}
+                <div class="floor">
+                    <div class="floor-header">第{{ floorIndex + 1 }}层</div>
+                    <div class="floor-content">
+                        {{if floor.recommendElements.length > 0}}
+                        <div class="info-block">
+                            <div class="title">推荐属性
+                                <div class="element-icon-list">
+                                    {{each floor.recommendElements element}}
+                                    <img class="element-icon" src="{{_res_path}}{{element.icon}}" title="{{element.name}}">
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}}
+
+                        <div class="info-block">
+                            <div class="title">挑战对象</div>
+                            <div class="monster-list">
+                                {{each floor.monsterIcons monster}}
+                                <div class="monster-item">
+                                    <img class="monster-icon" src="{{monster.iconUrl}}">
+                                    {{if monster.hp}}
+                                    <div class="monster-hp">{{monster.hp}}</div>
+                                    {{/if}}
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="title">深境干扰</div>
+                            <div class="content">
+                                <ul class="buff-list">
+                                    {{each floor.buffs buff}}
+                                    <li>{{@ buff }}</li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{/each}}
+
+    <div class="footer">
+        - 数据来源 hakush.in | waves-wiki -
+    </div>
+</div>
+
+</body>
+</html>

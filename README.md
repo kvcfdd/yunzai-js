@@ -4,13 +4,22 @@
 
 **注：本库所有插件均仅考虑trss的OneBotv11标准**
 
-- 深渊信息查询
+- 原神深渊信息查询
 
 ```
 curl -o plugins/example/tower.js https://raw.githubusercontent.com/kvcfdd/yunzai-js/refs/heads/main/js/tower.js
 ```
 
 使用示例：`#202510深渊`
+
+
+- 鸣潮深塔信息查询
+
+```
+curl -o plugins/example/waves-tower.js https://raw.githubusercontent.com/kvcfdd/yunzai-js/refs/heads/main/js/waves-tower.js
+```
+
+使用示例：`/202510深塔`
 
 
 - 好友申请/群邀请通知与处理
