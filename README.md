@@ -7,7 +7,7 @@
 - 原神深渊信息查询
 
 ```
-curl -o plugins/example/tower.js https://raw.githubusercontent.com/kvcfdd/yunzai-js/refs/heads/main/js/tower.js
+curl -o plugins/example/tower.js https://raw.xn--6rtu33f.top/kvcfdd/yunzai-js/refs/heads/main/js/tower.js
 ```
 
 使用示例：`#202510深渊`
@@ -16,7 +16,7 @@ curl -o plugins/example/tower.js https://raw.githubusercontent.com/kvcfdd/yunzai
 - 鸣潮深塔信息查询
 
 ```
-curl -o plugins/example/waves-tower.js https://raw.githubusercontent.com/kvcfdd/yunzai-js/refs/heads/main/js/waves-tower.js
+curl -o plugins/example/waves-tower.js https://raw.xn--6rtu33f.top/kvcfdd/yunzai-js/refs/heads/main/js/waves-tower.js
 ```
 
 使用示例：`ww202510深塔`
@@ -25,7 +25,7 @@ curl -o plugins/example/waves-tower.js https://raw.githubusercontent.com/kvcfdd/
 - 好友申请/群邀请通知与处理
 
 ```
-curl -o plugins/example/request.js https://raw.githubusercontent.com/kvcfdd/yunzai-js/refs/heads/main/js/request.js
+curl -o plugins/example/request.js https://raw.xn--6rtu33f.top/kvcfdd/yunzai-js/refs/heads/main/js/request.js
 ```
 
 说明：收到好友申请与群邀请时会向主人发送通知，主人可使用命令处理
@@ -34,7 +34,7 @@ curl -o plugins/example/request.js https://raw.githubusercontent.com/kvcfdd/yunz
 - QQ主页点赞
 
 ```
-curl -o plugins/example/like.js https://raw.githubusercontent.com/kvcfdd/yunzai-js/refs/heads/main/js/like.js
+curl -o plugins/example/like.js https://raw.xn--6rtu33f.top/kvcfdd/yunzai-js/refs/heads/main/js/like.js
 ```
 
 使用示例：`#赞我`
@@ -43,7 +43,7 @@ curl -o plugins/example/like.js https://raw.githubusercontent.com/kvcfdd/yunzai-
 - 预设面板替换
 
 ```
-curl -o plugins/example/presetPanel.js https://raw.githubusercontent.com/kvcfdd/yunzai-js/refs/heads/main/js/presetPanel.js
+curl -o plugins/example/presetPanel.js https://raw.xn--6rtu33f.top/kvcfdd/yunzai-js/refs/heads/main/js/presetPanel.js
 ```
 
 **注意：如在使用梁氏插件请不要安装此插件，可能会导致梁氏的数据被覆盖**
@@ -60,7 +60,7 @@ curl -o plugins/example/presetPanel.js https://raw.githubusercontent.com/kvcfdd/
 - WutheringWavesUID角色别称编辑
 
 ```
-curl -o plugins/example/name.js https://raw.githubusercontent.com/kvcfdd/yunzai-js/refs/heads/main/js/name.js
+curl -o plugins/example/name.js https://raw.xn--6rtu33f.top/kvcfdd/yunzai-js/refs/heads/main/js/name.js
 ```
 
 说明：此为[GsCore](https://docs.sayu-bot.com)的[WutheringWavesUID](https://github.com/tyql688/WutheringWavesUID)插件辅助功能，实现使用命令添加/移除角色别称，重启GsCore生效
