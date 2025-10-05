@@ -40,7 +40,7 @@ export class wwTowerInfo extends plugin {
             priority: 500,
             rule: [
                 {
-                    reg: '^/(\\d{4})(\\d{2})\\s*(深塔|深渊|逆境深塔)$',
+                    reg: '^ww(\\d{4})(\\d{2})\\s*(深塔|深渊|逆境深塔)$',
                     fnc: 'getTowerInfoByMonth'
                 }
             ]
@@ -83,7 +83,7 @@ export class wwTowerInfo extends plugin {
             return true
         }
         
-        const match = e.msg.match(/^\/(\d{4})(\d{2})\s*(深塔|深渊|逆境深塔)$/)
+        const match = e.msg.match(/^ww(\d{4})(\d{2})\s*(深塔|深渊|逆境深塔)$/)
 
         if (!match) return false
 
