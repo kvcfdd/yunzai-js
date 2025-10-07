@@ -60,7 +60,7 @@ export class wwTowerInfo extends plugin {
             fs.mkdirSync(dirPath, { recursive: true })
         }
 
-        const url = 'https://raw.githubusercontent.com/kvcfdd/yunzai-js/refs/heads/main/html/tower1.html'
+        const url = 'https://raw.xn--6rtu33f.top/kvcfdd/yunzai-js/refs/heads/main/html/tower1.html'
 
         try {
             const response = await fetch(url, { headers })

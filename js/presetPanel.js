@@ -97,7 +97,7 @@ export class presetPanel extends plugin {
       }
     ]
 
-    const baseUrl = 'https://raw.githubusercontent.com/kvcfdd/yunzai-js/refs/heads/main/json/'
+    const baseUrl = 'https://raw.xn--6rtu33f.top/kvcfdd/yunzai-js/refs/heads/main/json/'
 
     try {
       for (const v of fileSources) {
